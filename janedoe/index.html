@@ -562,6 +562,141 @@
             transform: scale(1.05);
         }
         
+        /* PDF-specific styles */
+        .pdf-container {
+            display: none;
+            background: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #333;
+            padding: 0.5in;
+            width: 8.5in;
+            margin: 0 auto;
+        }
+        
+        .pdf-container.generating {
+            display: block;
+        }
+        
+        .pdf-header {
+            background: #1e3a8a;
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            margin: -0.5in -0.5in 1.5rem -0.5in;
+        }
+        
+        .pdf-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pdf-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .pdf-name {
+            font-style: italic;
+            font-size: 18px;
+        }
+        
+        .pdf-section {
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+        
+        .pdf-section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #0ea5e9;
+            padding-bottom: 0.5rem;
+        }
+        
+        .pdf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 11px;
+        }
+        
+        .pdf-table th {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .pdf-table td {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        
+        .pdf-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .pdf-highlight-box {
+            background: #e0f2fe;
+            padding: 1rem;
+            border-left: 4px solid #0ea5e9;
+            margin: 1rem 0;
+        }
+        
+        .pdf-quote {
+            font-style: italic;
+            font-size: 14px;
+            color: #334155;
+            border-left: 3px solid #0ea5e9;
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .pdf-warning, .pdf-tip {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .pdf-warning {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .pdf-tip {
+            background: #f0f9ff;
+            border-left: 4px solid #0369a1;
+        }
+        
+        .pdf-tools {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .pdf-tool {
+            flex: 1;
+            padding: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+        }
+        
+        .pdf-tool-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -925,6 +1060,145 @@
         </div>
     </section>
     
+    <!-- PDF Container (Hidden by default) -->
+    <div class="pdf-container" id="pdfContainer">
+        <div class="pdf-header">
+            <div class="pdf-subtitle">Author Journey Blueprint</div>
+            <div class="pdf-title">Your Personalized Publishing Roadmap</div>
+            <div class="pdf-name">for Jane Doe</div>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">Introduction</div>
+            <p>Hi Jane,</p>
+            <p>I'm Zennah Jones, and I've spent the last 20 years working with creatives who have something important to say. I've been on both sides of this publishing journey - helping others launch their work and navigating my own complicated path as a creative entrepreneur.</p>
+            <p>This Blueprint came from interviewing published authors and asking: What do you wish you'd known earlier? Their answers weren't about secret formulas - they were about feeling prepared for the conversations that matter with your publisher, your team, and yourself.</p>
+            <p>This will give you the language and insight to confidently drive those conversations. You'll know which questions to ask, what timelines actually look like, and where authors typically get tripped up. I've included some insider knowledge that usually stays behind closed doors, because your voice matters and you deserve to feel equipped.</p>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">Publishing & Marketing Timeline</div>
+            <p>Here's the truth: every publishing timeline looks different, but audience engagement can't wait until your book is ready. Start building your community now - time isn't on your side. This timeline won't cover every single step, but it'll give you a clear picture of what's required to keep your project moving forward.</p>
+            
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Stage</th>
+                        <th style="width: 25%;">Timing</th>
+                        <th style="width: 50%;">Key Activities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Foundation Building</strong></td>
+                        <td>12–18 months before launch</td>
+                        <td>Finalize your manuscript, brainstorm cover concepts, refresh your website and email list, begin early audience engagement.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Setting the Stage</strong></td>
+                        <td>9–12 months before launch</td>
+                        <td>Finalize your title and cover, secure endorsements, distribute ARCs to early readers and influencers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Early Visibility</strong></td>
+                        <td>6–9 months before launch</td>
+                        <td>Reveal your cover, begin targeted media outreach, launch your preorder campaign with incentives.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Momentum Building</strong></td>
+                        <td>3–6 months before launch</td>
+                        <td>Secure early trade reviews, schedule podcast interviews and events, build excitement across your platforms.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Post-Launch Growth</strong></td>
+                        <td>After launch</td>
+                        <td>Continue media outreach, find seasonal promotional hooks, maintain book visibility and audience engagement.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">Where You Are Right Now</div>
+            <div class="pdf-highlight-box">
+                <strong>Manuscript Delivery: June 2025 • Publication: June 2026</strong><br><br>
+                You're in the Foundation Building stage, editing and revising your manuscript with delivery planned for June 2025 and publication a year later. This gives you an excellent timeline to not only perfect your content but also build the audience engagement that will make your launch powerful.
+                <br><br>
+                Since you're working with traditional publishing, now is the time to strengthen your platform while your publisher handles the production details. Your concern about community engagement is actually perfectly timed - you have about 12 months before your book hits the market, which is ideal for building authentic relationships with readers.
+                <br><br>
+                <strong>Write for your audience, not yourself - put this on a post-it and look at it regularly.</strong>
+            </div>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">What You're Feeling</div>
+            <div class="pdf-quote">
+                "I need to work on building my community, they aren't as engaged as they should be."
+            </div>
+            <p>Recognizing that your community needs more engagement shows real wisdom about publishing success. Most authors wait too long to focus on this. You're ahead of the game.</p>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">What to Watch Out For</div>
+            <div class="pdf-warning">
+                <strong>Your publisher isn't always going to manage the project for you.</strong><br>
+                They'll come to you at the last minute asking for quick decisions - be prepared to make choices fast.
+            </div>
+            <div class="pdf-warning">
+                <strong>Your publisher's support will dwindle after 30-60 days</strong><br>
+                - they'll move on to their next project, so plan to keep momentum going yourself.
+            </div>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">What I've Learned</div>
+            <div class="pdf-tip">
+                <strong>Build a community that sees themselves in your story.</strong><br>
+                The readers who will share your message are the ones who feel seen by you. Talk to them, thank them, ask them questions. Since you're already thinking about engagement, focus on making your current followers feel truly heard rather than just chasing new numbers.
+            </div>
+            <div class="pdf-tip">
+                <strong>The best time to show up was yesterday.</strong><br>
+                Start building relationships as soon as you know you're writing a book. Don't wait for a polished draft - let people root for you early. With your June 2026 launch date, you have perfect timing to let your community follow your editing and revision journey.
+            </div>
+            <div class="pdf-tip">
+                <strong>You don't need a crowd - you need connection.</strong><br>
+                You don't need 10,000 followers. You need trust. Start with people who already know you and grow from there. Quality engagement beats follower count every time, and authentic connections will champion your book when it launches.
+            </div>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">Two Tools I Use All the Time</div>
+            <div class="pdf-tools">
+                <div class="pdf-tool">
+                    <div class="pdf-tool-title">Building a StoryBrand</div>
+                    <div style="font-size: 10px; margin-bottom: 0.5rem;">by Donald Miller</div>
+                    <p>This book will help you get clear on what you're actually trying to say and why people should care.</p>
+                    <p><strong>buildingastorybrand.com</strong></p>
+                </div>
+                <div class="pdf-tool">
+                    <div class="pdf-tool-title">Sunsama</div>
+                    <div style="font-size: 10px; margin-bottom: 0.5rem;">Daily Planning Tool</div>
+                    <p>The most calming task manager I've ever used. It feels zen instead of chaotic, and the daily prompts help me see what I actually accomplished instead of just what's left to do.</p>
+                    <p><em>I may earn a commission if you purchase through this link.</em></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pdf-section">
+            <div class="pdf-section-title">Keep Going</div>
+            <p>This Blueprint isn't meant to sit in your downloads folder. Print it out. Keep it somewhere you can see it. Use it when you're talking with your publisher or planning your next move.</p>
+            <p><strong>Important:</strong> Your personalized Blueprint will only be available for the next 30 days, so download it now.</p>
+            <p>If this was helpful, I need to hear from you. Send me a note at hello@zennahjones.com or tag me on Instagram @hellozennah. Tell me what was the most helpful from this blueprint.</p>
+            <p>You decided to write this book for a reason. Trust that reason. Your voice matters, and the people who need to hear it are waiting. Keep going.</p>
+            <div style="margin-top: 2rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0;">
+                <strong>About Zennah Jones</strong><br>
+                I'm Zennah Jones. Over 20 years, I've helped creatives - from a New York Times bestselling author to major publishers and their authors - get clear on their message and launch with confidence. My background includes 11 years at advertising agencies and 10 years working with nonprofits on marketing, strategy, and events. When I'm not working, I'm usually at the gym, caring for my 22-year-old cat, or hanging out with my nephews.
+                <br><br>
+                <strong>Contact:</strong> hello@zennahjones.com | @hellozennah
+            </div>
+        </div>
+    </div>
+    
     <!-- Download Button -->
     <div class="download-container">
         <button class="download-button" id="downloadPdfButton">
@@ -937,9 +1211,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
-        // PDF Download functionality
+        // Improved PDF Download functionality
         document.addEventListener('DOMContentLoaded', function() {
             const downloadPdfButton = document.getElementById('downloadPdfButton');
+            const pdfContainer = document.getElementById('pdfContainer');
             
             // Check if html2pdf is loaded
             if (typeof html2pdf === 'undefined') {
@@ -954,65 +1229,48 @@
                 this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
                 this.disabled = true;
                 
-                // Hide the download button during generation
+                // Show the PDF container and hide the download button
+                pdfContainer.classList.add('generating');
                 this.style.display = 'none';
                 
-                // Simple PDF options - focus on reliability over fancy formatting
+                // Improved PDF options for better quality
                 const opt = {
-                    margin: 1,
+                    margin: [0.5, 0.5, 0.5, 0.5],
                     filename: 'jane-doe-author-journey-blueprint.pdf',
-                    image: { type: 'jpeg', quality: 0.8 },
+                    image: { 
+                        type: 'jpeg', 
+                        quality: 0.95 
+                    },
                     html2canvas: { 
-                        scale: 1,
+                        scale: 2,
                         useCORS: true,
                         logging: false,
-                        allowTaint: true
+                        letterRendering: true,
+                        allowTaint: false,
+                        backgroundColor: '#ffffff'
                     },
                     jsPDF: { 
                         unit: 'in', 
                         format: 'letter', 
-                        orientation: 'portrait' 
+                        orientation: 'portrait',
+                        compress: true
+                    },
+                    pagebreak: { 
+                        mode: ['avoid-all', 'css', 'legacy'] 
                     }
                 };
                 
-                // Target just the main content areas, excluding problematic elements
-                const elementsToInclude = [
-                    document.querySelector('.blueprint-header'),
-                    document.querySelector('.blueprint-content')
-                ];
-                
-                // Create a temporary container with just the content we want
-                const tempDiv = document.createElement('div');
-                tempDiv.style.width = '8.5in';
-                tempDiv.style.backgroundColor = 'white';
-                tempDiv.style.padding = '0.5in';
-                tempDiv.style.fontFamily = 'Arial, sans-serif';
-                tempDiv.style.fontSize = '12px';
-                tempDiv.style.lineHeight = '1.4';
-                
-                elementsToInclude.forEach(element => {
-                    if (element) {
-                        const clone = element.cloneNode(true);
-                        tempDiv.appendChild(clone);
-                    }
-                });
-                
-                // Temporarily add to page for PDF generation
-                document.body.appendChild(tempDiv);
-                
-                // Generate PDF from the temporary container
-                html2pdf().set(opt).from(tempDiv).save().then(function() {
+                // Generate PDF from the specially formatted container
+                html2pdf().set(opt).from(pdfContainer).save().then(function() {
                     // Clean up
-                    document.body.removeChild(tempDiv);
+                    pdfContainer.classList.remove('generating');
                     downloadPdfButton.innerHTML = originalText;
                     downloadPdfButton.disabled = false;
                     downloadPdfButton.style.display = 'flex';
                 }).catch(function(error) {
                     console.error('PDF generation failed:', error);
                     // Clean up on error
-                    if (document.body.contains(tempDiv)) {
-                        document.body.removeChild(tempDiv);
-                    }
+                    pdfContainer.classList.remove('generating');
                     downloadPdfButton.innerHTML = originalText;
                     downloadPdfButton.disabled = false;
                     downloadPdfButton.style.display = 'flex';
