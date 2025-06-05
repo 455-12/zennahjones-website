@@ -567,12 +567,15 @@
             display: none;
             background: white;
             font-family: 'Times New Roman', Times, serif;
-            font-size: 12px;
+            font-size: 11px;
             line-height: 1.4;
             color: #333;
-            padding: 0.5in;
-            width: 8.5in;
+            padding: 0.4in;
+            width: 7.7in;
             margin: 0 auto;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .pdf-container.generating {
@@ -582,9 +585,9 @@
         .pdf-header {
             background: #1e3a8a;
             color: white;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1rem;
             text-align: center;
-            margin: -0.5in -0.5in 1.5rem -0.5in;
+            margin: -0.4in -0.4in 1rem -0.4in;
         }
         
         .pdf-title {
@@ -607,8 +610,9 @@
         }
         
         .pdf-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             page-break-inside: avoid;
+            word-wrap: break-word;
         }
         
         .pdf-section-title {
@@ -624,21 +628,22 @@
             width: 100%;
             border-collapse: collapse;
             margin: 1rem 0;
-            font-size: 11px;
+            font-size: 10px;
         }
         
         .pdf-table th {
             background: #1e3a8a;
             color: white;
-            padding: 0.75rem 0.5rem;
+            padding: 0.5rem 0.3rem;
             text-align: left;
             font-weight: bold;
         }
         
         .pdf-table td {
-            padding: 0.75rem 0.5rem;
+            padding: 0.5rem 0.3rem;
             border-bottom: 1px solid #e2e8f0;
             vertical-align: top;
+            word-wrap: break-word;
         }
         
         .pdf-table tr:nth-child(even) {
@@ -647,22 +652,22 @@
         
         .pdf-highlight-box {
             background: #e0f2fe;
-            padding: 1rem;
+            padding: 0.8rem;
             border-left: 4px solid #0ea5e9;
             margin: 1rem 0;
         }
         
         .pdf-quote {
             font-style: italic;
-            font-size: 14px;
+            font-size: 13px;
             color: #334155;
             border-left: 3px solid #0ea5e9;
-            padding-left: 1rem;
+            padding-left: 0.8rem;
             margin: 1rem 0;
         }
         
         .pdf-warning, .pdf-tip {
-            padding: 1rem;
+            padding: 0.8rem;
             margin: 0.5rem 0;
             border-radius: 4px;
         }
@@ -678,14 +683,12 @@
         }
         
         .pdf-tools {
-            display: flex;
-            gap: 1rem;
             margin: 1rem 0;
         }
         
         .pdf-tool {
-            flex: 1;
-            padding: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 4px;
@@ -1083,8 +1086,8 @@
             <table class="pdf-table">
                 <thead>
                     <tr>
-                        <th style="width: 25%;">Stage</th>
-                        <th style="width: 25%;">Timing</th>
+                        <th style="width: 22%;">Stage</th>
+                        <th style="width: 28%;">Timing</th>
                         <th style="width: 50%;">Key Activities</th>
                     </tr>
                 </thead>
@@ -1233,9 +1236,9 @@
                 pdfContainer.classList.add('generating');
                 this.style.display = 'none';
                 
-                // Improved PDF options for better quality
+                // Improved PDF options for better quality and fit
                 const opt = {
-                    margin: [0.5, 0.5, 0.5, 0.5],
+                    margin: [0.3, 0.3, 0.3, 0.3],
                     filename: 'jane-doe-author-journey-blueprint.pdf',
                     image: { 
                         type: 'jpeg', 
@@ -1247,7 +1250,9 @@
                         logging: false,
                         letterRendering: true,
                         allowTaint: false,
-                        backgroundColor: '#ffffff'
+                        backgroundColor: '#ffffff',
+                        width: 1100,
+                        height: 1400
                     },
                     jsPDF: { 
                         unit: 'in', 
