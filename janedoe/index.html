@@ -568,6 +568,57 @@
             to { opacity: 1; }
         }
         
+        /* PDF-specific styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: white !important;
+            }
+            
+            .blueprint-header {
+                page-break-inside: avoid;
+                margin-bottom: 1rem;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem;
+            }
+            
+            .card-grid {
+                page-break-inside: avoid;
+            }
+            
+            .download-container {
+                display: none !important;
+            }
+            
+            .timeline-table {
+                page-break-inside: avoid;
+            }
+            
+            .encouragement-section {
+                page-break-before: auto;
+                margin-top: 1rem;
+            }
+            
+            .about-section {
+                page-break-before: auto;
+            }
+            
+            /* Prevent orphaned headers */
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            /* Keep content together */
+            .status-container,
+            .feeling-container {
+                page-break-inside: avoid;
+            }
+        }
+        
         /* Tablet and Desktop Styles */
         @media (min-width: 768px) {
             .blueprint-header {
@@ -889,26 +940,69 @@
         // PDF Download functionality
         document.addEventListener('DOMContentLoaded', function() {
             const downloadPdfButton = document.getElementById('downloadPdfButton');
+            
+            // Check if html2pdf is loaded
+            if (typeof html2pdf === 'undefined') {
+                console.error('html2pdf library not loaded');
+                downloadPdfButton.textContent = 'PDF Library Loading...';
+                return;
+            }
+            
             downloadPdfButton.addEventListener('click', function() {
-                // Temporarily hide the download button
+                // Show loading state
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+                this.disabled = true;
+                
+                // Temporarily hide the download button for PDF generation
                 this.style.display = 'none';
                 
-                // Set options for the PDF
+                // Set options for the PDF - optimized settings
                 const opt = {
-                    margin: 10,
+                    margin: [15, 15, 15, 15],
                     filename: 'jane-doe-author-journey-blueprint.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    image: { 
+                        type: 'jpeg', 
+                        quality: 0.85 
+                    },
+                    html2canvas: { 
+                        scale: 1.5,
+                        useCORS: true,
+                        allowTaint: false,
+                        letterRendering: true,
+                        height: window.innerHeight,
+                        width: window.innerWidth,
+                        scrollX: 0,
+                        scrollY: 0
+                    },
+                    jsPDF: { 
+                        unit: 'mm', 
+                        format: 'a4', 
+                        orientation: 'portrait',
+                        compress: true
+                    },
+                    pagebreak: { 
+                        mode: ['avoid-all', 'css', 'legacy'],
+                        before: '.section',
+                        after: '.encouragement-section'
+                    }
                 };
                 
-                // Get the content to convert to PDF (excluding the download button)
+                // Get the content to convert to PDF
                 const content = document.body;
                 
-                // Generate the PDF
+                // Generate the PDF with improved settings
                 html2pdf().set(opt).from(content).save().then(function() {
-                    // Show the download button again after PDF generation
+                    // Restore original button state
+                    downloadPdfButton.innerHTML = originalText;
+                    downloadPdfButton.disabled = false;
                     downloadPdfButton.style.display = 'flex';
+                }).catch(function(error) {
+                    console.error('PDF generation failed:', error);
+                    downloadPdfButton.innerHTML = originalText;
+                    downloadPdfButton.disabled = false;
+                    downloadPdfButton.style.display = 'flex';
+                    alert('PDF generation failed. Please try again.');
                 });
             });
         });
