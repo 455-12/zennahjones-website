@@ -954,55 +954,69 @@
                 this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
                 this.disabled = true;
                 
-                // Temporarily hide the download button for PDF generation
+                // Hide the download button during generation
                 this.style.display = 'none';
                 
-                // Set options for the PDF - optimized settings
+                // Simple PDF options - focus on reliability over fancy formatting
                 const opt = {
-                    margin: [15, 15, 15, 15],
+                    margin: 1,
                     filename: 'jane-doe-author-journey-blueprint.pdf',
-                    image: { 
-                        type: 'jpeg', 
-                        quality: 0.85 
-                    },
+                    image: { type: 'jpeg', quality: 0.8 },
                     html2canvas: { 
-                        scale: 1.5,
+                        scale: 1,
                         useCORS: true,
-                        allowTaint: false,
-                        letterRendering: true,
-                        height: window.innerHeight,
-                        width: window.innerWidth,
-                        scrollX: 0,
-                        scrollY: 0
+                        logging: false,
+                        allowTaint: true
                     },
                     jsPDF: { 
-                        unit: 'mm', 
-                        format: 'a4', 
-                        orientation: 'portrait',
-                        compress: true
-                    },
-                    pagebreak: { 
-                        mode: ['avoid-all', 'css', 'legacy'],
-                        before: '.section',
-                        after: '.encouragement-section'
+                        unit: 'in', 
+                        format: 'letter', 
+                        orientation: 'portrait' 
                     }
                 };
                 
-                // Get the content to convert to PDF
-                const content = document.body;
+                // Target just the main content areas, excluding problematic elements
+                const elementsToInclude = [
+                    document.querySelector('.blueprint-header'),
+                    document.querySelector('.blueprint-content')
+                ];
                 
-                // Generate the PDF with improved settings
-                html2pdf().set(opt).from(content).save().then(function() {
-                    // Restore original button state
+                // Create a temporary container with just the content we want
+                const tempDiv = document.createElement('div');
+                tempDiv.style.width = '8.5in';
+                tempDiv.style.backgroundColor = 'white';
+                tempDiv.style.padding = '0.5in';
+                tempDiv.style.fontFamily = 'Arial, sans-serif';
+                tempDiv.style.fontSize = '12px';
+                tempDiv.style.lineHeight = '1.4';
+                
+                elementsToInclude.forEach(element => {
+                    if (element) {
+                        const clone = element.cloneNode(true);
+                        tempDiv.appendChild(clone);
+                    }
+                });
+                
+                // Temporarily add to page for PDF generation
+                document.body.appendChild(tempDiv);
+                
+                // Generate PDF from the temporary container
+                html2pdf().set(opt).from(tempDiv).save().then(function() {
+                    // Clean up
+                    document.body.removeChild(tempDiv);
                     downloadPdfButton.innerHTML = originalText;
                     downloadPdfButton.disabled = false;
                     downloadPdfButton.style.display = 'flex';
                 }).catch(function(error) {
                     console.error('PDF generation failed:', error);
+                    // Clean up on error
+                    if (document.body.contains(tempDiv)) {
+                        document.body.removeChild(tempDiv);
+                    }
                     downloadPdfButton.innerHTML = originalText;
                     downloadPdfButton.disabled = false;
                     downloadPdfButton.style.display = 'flex';
-                    alert('PDF generation failed. Please try again.');
+                    alert('PDF generation failed. Please try again or try a different browser.');
                 });
             });
         });
