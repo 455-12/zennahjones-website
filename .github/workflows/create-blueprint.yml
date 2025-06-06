@@ -1,0 +1,60 @@
+name: Create Author Blueprint Page
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-blueprint:
+    if: contains(github.event.issue.title, 'Create blueprint for')
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Extract author name from issue title
+      id: extract-name
+      run: |
+        TITLE="${{ github.event.issue.title }}"
+        AUTHOR_NAME=$(echo "$TITLE" | sed 's/Create blueprint for //I' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+        echo "author_name=$AUTHOR_NAME" >> $GITHUB_OUTPUT
+        
+    - name: Extract gist URL from issue body
+      id: extract-gist
+      run: |
+        BODY="${{ github.event.issue.body }}"
+        GIST_URL=$(echo "$BODY" | grep -o 'https://gist.github.com/[^/]*/[a-f0-9]*' | head -1)
+        GIST_ID=$(echo "$GIST_URL" | grep -o '[a-f0-9]*$')
+        echo "gist_id=$GIST_ID" >> $GITHUB_OUTPUT
+        
+    - name: Fetch gist content
+      id: fetch-gist
+      run: |
+        curl -s "https://api.github.com/gists/${{ steps.extract-gist.outputs.gist_id }}" > gist.json
+        # Get the first file's content (assuming single HTML file in gist)
+        jq -r '.files[] | .content' gist.json > blueprint.html
+        
+    - name: Create author directory and file
+      run: |
+        mkdir -p "${{ steps.extract-name.outputs.author_name }}"
+        cp blueprint.html "${{ steps.extract-name.outputs.author_name }}/index.html"
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add "${{ steps.extract-name.outputs.author_name }}/index.html"
+        git commit -m "Add blueprint page for ${{ steps.extract-name.outputs.author_name }}"
+        git push
+        
+    - name: Close issue
+      uses: peter-evans/close-issue@v3
+      with:
+        issue-number: ${{ github.event.issue.number }}
+        comment: |
+          ✅ Blueprint page created successfully! 
+          
+          Your new page is live at: https://zennahjones.com/${{ steps.extract-name.outputs.author_name }}
+          
+          The page will be available in a few minutes after Netlify deployment completes.
