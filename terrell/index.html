@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Author Journey Blueprint – Terrell Washington</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Core palette */
+      --primary-light: #e0f2fe;
+      --primary: #0ea5e9;
+      --primary-dark: #0369a1;
+      --deep-blue: #1e3a8a;
+      --accent: #9333ea;
+
+      /* Neutrals */
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Mulish', sans-serif;
+
+      /* Sizes */
+      --size-xs: 0.75rem;
+      --size-sm: 0.875rem;
+      --size-base: 1rem;
+      --size-lg: 1.125rem;
+      --size-xl: 1.25rem;
+      --size-2xl: 1.5rem;
+      --size-3xl: 1.875rem;
+      --size-4xl: 2.25rem;
+
+      /* Animation */
+      --transition-slow: 0.5s ease;
+      --transition-normal: 0.3s ease;
+      --transition-fast: 0.15s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--gray-800);
+      background-color: var(--gray-50);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--deep-blue);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-size: var(--size-base);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .blueprint-header {
+      position: relative;
+      padding: 4rem 1rem 3rem;
+      background: linear-gradient(135deg, var(--deep-blue), var(--primary-dark));
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .blueprint-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(255,255,255,0.05)' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.7;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header-subtitle {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: var(--size-xs);
+      color: var(--primary-light);
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+
+    .header-title {
+      font-size: var(--size-2xl);
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header-name {
+      font-style: italic;
+      display: block;
+      font-size: 115%;
+      margin-top: 0.5rem;
+    }
+
+    .header-message {
+      font-size: var(--size-base);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .blueprint-content {
+      padding: 2rem 1rem;
+      background-color: var(--white);
+      border-radius: 8px;
+      margin: -20px auto 30px;
+      max-width: 95%;
+      box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .welcome-message {
+      font-size: var(--size-lg);
+      color: var(--gray-700);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+      position: relative;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-size: var(--size-xl);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 20px;
+      height: 3px;
+      background-color: var(--primary);
+      display: block;
+    }
+
+    .section-content {
+      padding-left: 0.5rem;
+    }
+
+    /* Timeline Table */
+    .timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background-color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-table th {
+      background-color: var(--deep-blue);
+      color: var(--white);
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: var(--size-sm);
+    }
+
+    .timeline-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+      font-size: var(--size-sm);
+    }
+
+    .timeline-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .timeline-table tr:nth-child(even) {
+      background-color: var(--gray-50);
+    }
+
+    .stage-column {
+      font-weight: 600;
+      color: var(--deep-blue);
+      width: 20%;
+    }
+
+    .timing-column {
+      color: var(--primary-dark);
+      font-weight: 500;
+      width: 25%;
+    }
+
+    .activities-column {
+      width: 55%;
+    }
+
+    /* Current Status */
+    .status-container {
+      background-color: var(--primary-light);
+      border-radius: 8px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+
+    .status-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .status-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      z-index: 1;
+    }
+
+    .status-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(14, 165, 233, 0.1);
+      border-radius: 50%;
+      transform: translate(-30%, 30%);
+      z-index: 1;
+    }
+
+    .status-date {
+      font-weight: 600;
+      color: var(--primary-dark);
+      font-size: var(--size-base);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Feeling Section */
+    .feeling-container {
+      background-color: var(--gray-50);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      page-break-inside: avoid;
+    }
+
+    .quote-block {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: var(--size-lg);
+      color: var(--gray-700);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--primary);
+    }
+
+    /* Warnings and Tips */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+      page-break-inside: avoid;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      padding: 1rem;
+      position: relative;
+    }
+
+    .warning-card .card-header {
+      background-color: #fef2f2;
+      border-bottom: 1px solid #fee2e2;
+    }
+
+    .tip-card .card-header {
+      background-color: #f0f9ff;
+      border-bottom: 1px solid #e0f2fe;
+    }
+
+    .resource-card .card-header {
+      background-color: #f0fdf4;
+      border-bottom: 1px solid #dcfce7;
+    }
+
+    .card-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: var(--size-base);
+      margin-bottom: 0.5rem;
+    }
+
+    .warning-card .card-title {
+      color: #b91c1c;
+    }
+
+    .tip-card .card-title {
+      color: #0369a1;
+    }
+
+    .resource-card .card-title {
+      color: #15803d;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    /* Tools Section */
+    .tools-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .tool-item {
+      background-color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-normal);
+      page-break-inside: avoid;
+    }
+
+    .tool-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .tool-header {
+      background-color: var(--deep-blue);
+      color: var(--white);
+      padding: 1rem;
+      position: relative;
+    }
+
+    .tool-title {
+      font-size: var(--size-base);
+      margin-bottom: 0.25rem;
+      color: var(--white);
+    }
+
+    .tool-subtitle {
+      font-size: var(--size-xs);
+      opacity: 0.8;
+    }
+
+    .tool-body {
+      padding: 1rem;
+    }
+
+    .tool-description {
+      margin-bottom: 1rem;
+      font-size: var(--size-sm);
+      color: var(--gray-800);
+    }
+
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: var(--size-sm);
+      transition: background-color var(--transition-fast);
+    }
+
+    .tool-link:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .tool-link i {
+      font-size: 1em;
+    }
+
+    /* Final encouragement */
+    .encouragement-section {
+      background-color: var(--deep-blue);
+      color: var(--white);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin: 3rem -1rem -2rem;
+      border-radius: 0 0 8px 8px;
+      page-break-before: auto;
+    }
+
+    .encouragement-title {
+      font-size: var(--size-2xl);
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .encouragement-text {
+      margin: 0 auto 1.5rem;
+      font-size: var(--size-base);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: var(--gray-50);
+      padding: 3rem 1rem;
+      margin-top: 3rem;
+      page-break-before: auto;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about-image {
+      border-radius: 50%;
+      overflow: hidden;
+      height: 180px;
+      width: 180px;
+      background-color: var(--primary-light);
+    }
+
+    .about-content {
+      text-align: center;
+    }
+
+    .about-title {
+      font-size: var(--size-xl);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .about-title::before {
+      content: '';
+      width: 20px;
+      height: 3px;
+      background-color: var(--primary);
+      display: block;
+    }
+
+    .about-text {
+      font-size: var(--size-base);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-link {
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color var(--transition-fast);
+      font-size: var(--size-sm);
+    }
+
+    .contact-link:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Download Button */
+    .download-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .download-button {
+      padding: 0.75rem 1.25rem;
+      background-color: var(--deep-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.2);
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--size-sm);
+    }
+
+    .download-button:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    /* PDF‐specific styles */
+    .pdf-container {
+      display: none;
+      background: white;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #333;
+      padding: 0.4in;
+      width: 7.7in;
+      margin: 0 auto;
+      box-sizing: border-box;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .pdf-container.generating {
+      display: block;
+    }
+
+    .pdf-header {
+      background: #1e3a8a;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      margin: -0.4in -0.4in 1rem -0.4in;
+    }
+
+    .pdf-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .pdf-subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .pdf-name {
+      font-style: italic;
+      font-size: 18px;
+    }
+
+    .pdf-section {
+      margin-bottom: 1.5rem;
+      page-break-inside: avoid;
+      word-wrap: break-word;
+    }
+
+    .pdf-section-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #0ea5e9;
+      padding-bottom: 0.5rem;
+    }
+
+    .pdf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 10px;
+    }
+
+    .pdf-table th {
+      background: #1e3a8a;
+      color: white;
+      padding: 0.5rem 0.3rem;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .pdf-table td {
+      padding: 0.5rem 0.3rem;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    .pdf-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .pdf-highlight-box {
+      background: #e0f2fe;
+      padding: 0.8rem;
+      border-left: 4px solid #0ea5e9;
+      margin: 1rem 0;
+    }
+
+    .pdf-quote {
+      font-style: italic;
+      font-size: 13px;
+      color: #334155;
+      border-left: 3px solid #0ea5e9;
+      padding-left: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .pdf-warning, .pdf-tip {
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+    }
+
+    .pdf-warning {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+    }
+
+    .pdf-tip {
+      background: #f0f9ff;
+      border-left: 4px solid #0369a1;
+    }
+
+    .pdf-tools {
+      margin: 1rem 0;
+    }
+
+    .pdf-tool {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+    }
+
+    .pdf-tool-title {
+      font-weight: bold;
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Print‐specific */
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        background: white !important;
+      }
+
+      .blueprint-header {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+
+      .section {
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem;
+      }
+
+      .card-grid {
+        page-break-inside: avoid;
+      }
+
+      .download-container {
+        display: none !important;
+      }
+
+      .timeline-table {
+        page-break-inside: avoid;
+      }
+
+      .encouragement-section {
+        page-break-before: auto;
+        margin-top: 1rem;
+      }
+
+      .about-section {
+        page-break-before: auto;
+      }
+
+      h1, h2, h3 {
+        page-break-after: avoid;
+      }
+
+      .status-container,
+      .feeling-container {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Tablet & Desktop Overrides */
+    @media (min-width: 768px) {
+      .blueprint-header {
+        padding: 5rem 2rem 4rem;
+      }
+
+      .header-title {
+        font-size: var(--size-3xl);
+      }
+
+      .header-subtitle {
+        font-size: var(--size-sm);
+        letter-spacing: 3px;
+      }
+
+      .header-message {
+        font-size: var(--size-lg);
+      }
+
+      .blueprint-content {
+        padding: 3rem 2rem;
+        margin: -40px auto 60px;
+        max-width: 1100px;
+      }
+
+      .section-title {
+        font-size: var(--size-2xl);
+        gap: 1rem;
+      }
+
+      .section-title::before {
+        width: 30px;
+      }
+
+      .section-content {
+        padding-left: 2.5rem;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .tools-container {
+        flex-direction: row;
+        gap: 2rem;
+      }
+
+      .tool-item {
+        flex: 1;
+      }
+
+      .about-container {
+        flex-direction: row;
+        text-align: left;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-image {
+        flex: 1;
+        height: 300px;
+        width: 300px;
+      }
+
+      .about-content {
+        flex: 2;
+        text-align: left;
+      }
+
+      .about-title {
+        justify-content: flex-start;
+      }
+
+      .contact-links {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="blueprint-header">
+    <div class="header-content">
+      <div class="header-subtitle">Author Journey Blueprint</div>
+      <h1 class="header-title">
+        Your Personalized Publishing Roadmap
+        <span class="header-name">for Terrell Washington</span>
+      </h1>
+      <p class="header-message">
+        A strategic guide to your unique publishing journey, designed to illuminate your path and amplify your voice.
+      </p>
+    </div>
+  </header>
+
+  <div class="blueprint-content">
+    <!-- Intro Section -->
+    <section id="intro" class="section">
+      <p class="welcome-message">Hi Terrell,</p>
+      <p>
+        I'm Zennah Jones, and I've spent the last 20 years working with creatives who have something important to say. I've been on both sides of this publishing journey – helping others launch their work and navigating my own complicated path as a creative entrepreneur.
+      </p>
+      <p>
+        This Blueprint came from interviewing published authors and asking: <em>What do you wish you'd known earlier?</em> Their answers weren't about secret formulas – they were about feeling prepared for the conversations that matter with your publisher, your team, and yourself.
+      </p>
+      <p>
+        This will give you the language and insight to confidently drive those conversations. You'll know which questions to ask, what timelines actually look like, and where authors typically get tripped up. I've included some insider knowledge that usually stays behind closed doors, because your voice matters and you deserve to feel equipped.
+      </p>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section">
+      <h2 class="section-title">Publishing & Marketing Timeline</h2>
+      <div class="section-content">
+        <p>
+          Here's the truth: every publishing timeline looks different, but audience engagement can't wait until your book is ready. Start building your community now – time isn't on your side. This timeline won't cover every single step, but it'll give you a clear picture of what's required to keep your project moving forward.
+        </p>
+
+        <table class="timeline-table">
+          <thead>
+            <tr>
+              <th class="stage-column">Stage</th>
+              <th class="timing-column">Timing</th>
+              <th class="activities-column">Key Activities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="stage-column">Foundation Building</td>
+              <td class="timing-column">12–18 months before launch</td>
+              <td class="activities-column">
+                Finalize your manuscript, brainstorm cover concepts, refresh your website and email list, begin early audience engagement.
+              </td>
+            </tr>
+            <tr>
+              <td class="stage-column">Setting the Stage</td>
+              <td class="timing-column">9–12 months before launch</td>
+              <td class="activities-column">
+                Finalize your title and cover, secure endorsements, distribute ARCs to early readers and influencers.
+              </td>
+            </tr>
+            <tr>
+              <td class="stage-column">Early Visibility</td>
+              <td class="timing-column">6–9 months before launch</td>
+              <td class="activities-column">
+                Reveal your cover, begin targeted media outreach, launch your preorder campaign with incentives.
+              </td>
+            </tr>
+            <tr>
+              <td class="stage-column">Momentum Building</td>
+              <td class="timing-column">3–6 months before launch</td>
+              <td class="activities-column">
+                Secure early trade reviews, schedule podcast interviews and events, build excitement across your platforms.
+              </td>
+            </tr>
+            <tr>
+              <td class="stage-column">Post-Launch Growth</td>
+              <td class="timing-column">After launch</td>
+              <td class="activities-column">
+                Continue media outreach, find seasonal promotional hooks, maintain book visibility and audience engagement.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Current Status Section -->
+    <section id="current" class="section">
+      <h2 class="section-title">Where You Are Right Now</h2>
+      <div class="section-content">
+        <div class="status-container">
+          <div class="status-content">
+            <div class="status-date">Manuscript Delivery: July 30, 2025 • Publication: October 15, 2025</div>
+            <p>
+              You're in the Foundation Building stage, actively editing and revising your manuscript with a targeted completion date of July 30th and publication planned for October 15th. This gives you about 2.5 months for production, which is a tight but achievable timeline for self-publishing.
+            </p>
+            <p>
+              Self-publishing means you have complete creative control over your message – exactly what you wanted. The tradeoff is that you're now the project manager, marketing director, and quality control team all in one. But this also means you can move at your own pace and make decisions that align with your vision.
+            </p>
+            <p><strong>Write for your audience, not yourself – put this on a post-it and look at it regularly.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feeling Section -->
+    <section id="feeling" class="section">
+      <h2 class="section-title">What You're Feeling</h2>
+      <div class="section-content">
+        <div class="feeling-container">
+          <blockquote class="quote-block">
+            "I'm excited about having complete creative control over my message, but nervous about the technical aspects of self-publishing and finding quality, affordable service providers."
+          </blockquote>
+          <p>
+            This excitement about creative control paired with tech concerns is completely normal. Your passion will guide you through the learning curve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warnings Section -->
+    <section id="warnings" class="section">
+      <h2 class="section-title">What to Watch Out For</h2>
+      <div class="section-content">
+        <div class="card-grid">
+          <div class="card warning-card">
+            <div class="card-header">
+              <h3 class="card-title">Don't try to learn every technical skill yourself.</h3>
+            </div>
+            <div class="card-body">
+              <p>Focus on writing and marketing. Invest in quality professionals for editing, cover design, and formatting rather than spending months learning skills you'll use once.</p>
+            </div>
+          </div>
+
+          <div class="card warning-card">
+            <div class="card-header">
+              <h3 class="card-title">Cheap services often cost more in the long run.</h3>
+            </div>
+            <div class="card-body">
+              <p>A poorly edited book or amateur cover can hurt your credibility permanently. Research providers thoroughly, check portfolios, and read reviews before committing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I've Learned Section -->
+    <section id="insights" class="section">
+      <h2 class="section-title">What I've Learned</h2>
+      <div class="section-content">
+        <div class="card-grid">
+          <div class="card tip-card">
+            <div class="card-header">
+              <h3 class="card-title">Plan your own spotlight.</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Unless you're famous, you'll be planning your own events and virtual tour. Budget for this early and build your support system. As a self-publisher, you already know this is all on you – use that to your advantage by planning thoroughly and building systems that work.
+              </p>
+            </div>
+          </div>
+
+          <div class="card tip-card">
+            <div class="card-header">
+              <h3 class="card-title">Think like a steward and a strategist.</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                You're here to serve people with your words, but also to lead a project with costs and timelines. Embrace both sides. Your concern about finding quality, affordable service providers shows you're already thinking strategically about resource management.
+              </p>
+            </div>
+          </div>
+
+          <div class="card tip-card">
+            <div class="card-header">
+              <h3 class="card-title">Protect your most focused, creative time.</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                The best writing doesn't happen between meetings or while multitasking. Block real time for deep work when your brain is sharp. Since you're managing all aspects of publishing, protecting your writing time becomes even more critical.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section">
+      <h2 class="section-title">Two Tools I Use All the Time</h2>
+      <div class="section-content">
+        <div class="tools-container">
+          <div class="tool-item">
+            <div class="tool-header">
+              <h3 class="tool-title">For messaging</h3>
+              <div class="tool-subtitle">Building a StoryBrand by Donald Miller</div>
+            </div>
+            <div class="tool-body">
+              <p class="tool-description">
+                This book will help you get clear on what you're actually trying to say and why people should care.
+              </p>
+              <a href="https://buildingastorybrand.com" target="_blank" class="tool-link">
+                buildingastorybrand.com
+              </a>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-header">
+              <h3 class="tool-title">For managing everything</h3>
+              <div class="tool-subtitle">Sunsama</div>
+            </div>
+            <div class="tool-body">
+              <p class="tool-description">
+                The most calming task manager I've ever used. It feels zen instead of chaotic, and the daily prompts help me see what I actually accomplished instead of just what's left to do. <em>I may earn a commission if you purchase through this link.</em>
+              </p>
+              <a href="https://sunsama.grsm.io/hgesrnrm4j7y" target="_blank" class="tool-link">
+                Try Sunsama
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Encouragement -->
+    <section class="encouragement-section">
+      <h2 class="encouragement-title">Keep Going</h2>
+      <p class="encouragement-text">
+        This Blueprint isn't meant to sit in your downloads folder. Print it out. Keep it somewhere you can see it. Use it when you're talking with your publisher or planning your next move.
+      </p>
+      <p class="encouragement-text">
+        <strong>Important:</strong> Your personalized Blueprint will only be available for the next 30 days, so download it now.
+      </p>
+      <p class="encouragement-text">
+        If this was helpful, I need to hear from you. Send me a note at hello@zennahjones.com or tag me on Instagram @hellozennah. Tell me what was the most helpful from this blueprint.
+      </p>
+      <p class="encouragement-text">
+        You decided to write this book for a reason. Trust that reason. Your voice matters, and the people who need to hear it are waiting. Keep going.
+      </p>
+    </section>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <!-- Author photo would go here -->
+      </div>
+      <div class="about-content">
+        <h2 class="about-title">About me</h2>
+        <p class="about-text">
+          I'm Zennah Jones. Over 20 years, I've helped creatives – from a New York Times bestselling author to major publishers and their authors – get clear on their message and launch with confidence. My background includes 11 years at advertising agencies and 10 years working with nonprofits on marketing, strategy, and events. When I'm not working, I'm usually at the gym, caring for my 22-year-old cat, or hanging out with my nephews.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:hello@zennahjones.com" class="contact-link">
+            hello@zennahjones.com
+          </a>
+          <a href="https://instagram.com/hellozennah" target="_blank" class="contact-link">
+            @hellozennah
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF Container (Hidden by default) -->
+  <div class="pdf-container" id="pdfContainer">
+    <div class="pdf-header">
+      <div class="pdf-subtitle">Author Journey Blueprint</div>
+      <div class="pdf-title">Your Personalized Publishing Roadmap</div>
+      <div class="pdf-name">for Terrell Washington</div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">Introduction</div>
+      <p>Hi Terrell,</p>
+      <p>
+        I'm Zennah Jones, and I've spent the last 20 years working with creatives who have something important to say. I've been on both sides of this publishing journey – helping others launch their work and navigating my own complicated path as a creative entrepreneur.
+      </p>
+      <p>
+        This Blueprint came from interviewing published authors and asking: What do you wish you'd known earlier? Their answers weren't about secret formulas – they were about feeling prepared for the conversations that matter with your publisher, your team, and yourself.
+      </p>
+      <p>
+        This will give you the language and insight to confidently drive those conversations. You'll know which questions to ask, what timelines actually look like, and where authors typically get tripped up. I've included some insider knowledge that usually stays behind closed doors, because your voice matters and you deserve to feel equipped.
+      </p>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">Publishing & Marketing Timeline</div>
+      <p>
+        Here's the truth: every publishing timeline looks different, but audience engagement can't wait until your book is ready. Start building your community now – time isn't on your side. This timeline won't cover every single step, but it'll give you a clear picture of what's required to keep your project moving forward.
+      </p>
+
+      <table class="pdf-table">
+        <thead>
+          <tr>
+            <th style="width: 22%;">Stage</th>
+            <th style="width: 28%;">Timing</th>
+            <th style="width: 50%;">Key Activities</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Foundation Building</strong></td>
+            <td>12–18 months before launch</td>
+            <td>
+              Finalize your manuscript, brainstorm cover concepts, refresh your website and email list, begin early audience engagement.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Setting the Stage</strong></td>
+            <td>9–12 months before launch</td>
+            <td>
+              Finalize your title and cover, secure endorsements, distribute ARCs to early readers and influencers.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Early Visibility</strong></td>
+            <td>6–9 months before launch</td>
+            <td>
+              Reveal your cover, begin targeted media outreach, launch your preorder campaign with incentives.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Momentum Building</strong></td>
+            <td>3–6 months before launch</td>
+            <td>
+              Secure early trade reviews, schedule podcast interviews and events, build excitement across your platforms.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Post-Launch Growth</strong></td>
+            <td>After launch</td>
+            <td>
+              Continue media outreach, find seasonal promotional hooks, maintain book visibility and audience engagement.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">Where You Are Right Now</div>
+      <div class="pdf-highlight-box">
+        <strong>Manuscript Delivery: July 30, 2025 • Publication: October 15, 2025</strong><br /><br />
+        You're in the Foundation Building stage, actively editing and revising your manuscript with a targeted completion date of July 30th and publication planned for October 15th. This gives you about 2.5 months for production, which is a tight but achievable timeline for self-publishing.
+        <br /><br />
+        Self-publishing means you have complete creative control over your message – exactly what you wanted. The tradeoff is that you're now the project manager, marketing director, and quality control team all in one. But this also means you can move at your own pace and make decisions that align with your vision.
+        <br /><br />
+        <strong>Write for your audience, not yourself – put this on a post-it and look at it regularly.</strong>
+      </div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">What You're Feeling</div>
+      <div class="pdf-quote">
+        "I'm excited about having complete creative control over my message, but nervous about the technical aspects of self-publishing and finding quality, affordable service providers."
+      </div>
+      <p>
+        This excitement about creative control paired with tech concerns is completely normal. Your passion will guide you through the learning curve.
+      </p>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">What to Watch Out For</div>
+      <div class="pdf-warning">
+        <strong>Don't try to learn every technical skill yourself.</strong><br />
+        Focus on writing and marketing. Invest in quality professionals for editing, cover design, and formatting rather than spending months learning skills you'll use once.
+      </div>
+      <div class="pdf-warning">
+        <strong>Cheap services often cost more in the long run.</strong><br />
+        A poorly edited book or amateur cover can hurt your credibility permanently. Research providers thoroughly, check portfolios, and read reviews before committing.
+      </div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">What I've Learned</div>
+      <div class="pdf-tip">
+        <strong>Plan your own spotlight.</strong><br />
+        Unless you're famous, you'll be planning your own events and virtual tour. Budget for this early and build your support system. As a self-publisher, you already know this is all on you – use that to your advantage by planning thoroughly and building systems that work.
+      </div>
+      <div class="pdf-tip">
+        <strong>Think like a steward and a strategist.</strong><br />
+        You're here to serve people with your words, but also to lead a project with costs and timelines. Embrace both sides. Your concern about finding quality, affordable service providers shows you're already thinking strategically about resource management.
+      </div>
+      <div class="pdf-tip">
+        <strong>Protect your most focused, creative time.</strong><br />
+        The best writing doesn't happen between meetings or while multitasking. Block real time for deep work when your brain is sharp. Since you're managing all aspects of publishing, protecting your writing time becomes even more critical.
+      </div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">Two Tools I Use All the Time</div>
+      <div class="pdf-tools">
+        <div class="pdf-tool">
+          <div class="pdf-tool-title">For messaging: Building a StoryBrand</div>
+          <div style="font-size: 10px; margin-bottom: 0.5rem;">by Donald Miller</div>
+          <p>This book will help you get clear on what you're actually trying to say and why people should care.</p>
+          <p><strong>buildingastorybrand.com</strong></p>
+        </div>
+        <div class="pdf-tool">
+          <div class="pdf-tool-title">For managing everything: Sunsama</div>
+          <p>
+            The most calming task manager I've ever used. It feels zen instead of chaotic, and the daily prompts help me see what I actually accomplished instead of just what's left to do.
+          </p>
+          <p><strong>https://sunsama.grsm.io/hgesrnrm4j7y</strong></p>
+          <p><em>I may earn a commission if you purchase through this link.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">Keep Going</div>
+      <p>
+        This Blueprint isn't meant to sit in your downloads folder. Print it out. Keep it somewhere you can see it. Use it when you're talking with your publisher or planning your next move.
+      </p>
+      <p>
+        <strong>Important:</strong> Your personalized Blueprint will only be available for the next 30 days, so download it now.
+      </p>
+      <p>
+        If this was helpful, I need to hear from you. Send me a note at hello@zennahjones.com or tag me on Instagram @hellozennah. Tell me what was the most helpful from this blueprint.
+      </p>
+      <p>
+        You decided to write this book for a reason. Trust that reason. Your voice matters, and the people who need to hear it are waiting. Keep going.
+      </p>
+      <div style="margin-top: 2rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0;">
+        <strong>About me:</strong> I'm Zennah Jones. Over 20 years, I've helped creatives – from a New York Times bestselling author to major publishers and their authors – get clear on their message and launch with confidence. My background includes 11 years at advertising agencies and 10 years working with nonprofits on marketing, strategy, and events. When I'm not working, I'm usually at the gym, caring for my 22-year-old cat, or hanging out with my nephews.
+        <br /><br />
+        <strong>Contact:</strong> hello@zennahjones.com  |  @hellozennah
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Button -->
+  <div class="download-container">
+    <button class="download-button" id="downloadPdfButton">
+      <i class="fas fa-file-pdf"></i> Download PDF
+    </button>
+  </div>
+
+  <!-- FontAwesome for icons and html2pdf for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const downloadPdfButton = document.getElementById('downloadPdfButton');
+      const pdfContainer = document.getElementById('pdfContainer');
+
+      if (typeof html2pdf === 'undefined') {
+        console.error('html2pdf library not loaded');
+        downloadPdfButton.textContent = 'PDF Library Loading…';
+        return;
+      }
+
+      downloadPdfButton.addEventListener('click', function() {
+        // Change button to loading state
+        const originalHTML = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF…';
+        this.disabled = true;
+
+        // Show the PDF container and hide the button
+        pdfContainer.classList.add('generating');
+        this.style.display = 'none';
+
+        const opt = {
+          margin: [0.3, 0.3, 0.3, 0.3], // 0.3in margins on each side
+          filename: 'terrell-washington-author-journey-blueprint.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.95
+          },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            letterRendering: true
+            // Removed explicit width/height so it uses .pdf-container's 7.7in width
+          },
+          jsPDF: {
+            unit: 'in',
+            format: 'letter',
+            orientation: 'portrait',
+            compress: true
+          },
+          pagebreak: {
+            mode: ['css', 'legacy']
+          }
+        };
+
+        // Generate and save the PDF
+        html2pdf().set(opt).from(pdfContainer).save().then(function() {
+          // Reset state
+          pdfContainer.classList.remove('generating');
+          downloadPdfButton.innerHTML = originalHTML;
+          downloadPdfButton.disabled = false;
+          downloadPdfButton.style.display = 'flex';
+        }).catch(function(err) {
+          console.error('PDF generation failed:', err);
+          pdfContainer.classList.remove('generating');
+          downloadPdfButton.innerHTML = originalHTML;
+          downloadPdfButton.disabled = false;
+          downloadPdfButton.style.display = 'flex';
+          alert('PDF generation failed. Please try again in a different browser.');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
